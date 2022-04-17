@@ -11,9 +11,9 @@ public class ComputerTest {
         Computer computer = new Computer();
 
         // when
-        String str = computer.generateValue(3);
+        computer.setValue(3);
 
         // then
-        assertThat(str.length()).isEqualTo(3);
+        assertThat(computer.getValue().length()).isEqualTo(3);
     }
 }

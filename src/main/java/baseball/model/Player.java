@@ -10,6 +10,8 @@ public class Player {
     }
 
     public void input() {
-        this.value = Console.readLine();
+        String input = Console.readLine();
+        System.out.println(input);
+        this.value = input;
     }
 }
