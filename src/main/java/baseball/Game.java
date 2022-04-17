@@ -5,8 +5,6 @@ import baseball.model.Player;
 import baseball.model.Rule;
 import baseball.view.ConsoleView;
 
-import java.util.Optional;
-
 public class Game {
     private boolean isRunning = true;
     private Player player = new Player();
