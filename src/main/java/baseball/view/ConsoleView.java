@@ -26,10 +26,10 @@ public class ConsoleView {
     }
 
     public void replay() {
-        System.out.print(Message.REPLAY);
+        System.out.println(Message.REPLAY);
     }
 
     public void end() {
-        System.out.print(Message.END);
+        System.out.println(Message.END);
     }
 }
