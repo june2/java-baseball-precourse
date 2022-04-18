@@ -2,13 +2,17 @@ package baseball;
 
 import baseball.constant.Config;
 import baseball.model.Computer;
-import baseball.model.Player;
+import baseball.model.player.PlayMode;
+import baseball.model.player.Player;
 import baseball.model.Rule;
+import baseball.model.player.ReplayMode;
 import baseball.view.ConsoleView;
 
 public class Game {
     private boolean isRunning = true;
     private Player player = new Player();
+    private PlayMode playMode = new PlayMode();
+    private ReplayMode replayMode = new ReplayMode();
     private Computer computer = new Computer();
     private Rule rule = new Rule();
     private ConsoleView view = new ConsoleView();
@@ -19,6 +23,7 @@ public class Game {
 
     private void run() {
         view.play();
+        player.setMode(playMode);
         player.input();
         this.match();
     }
@@ -35,6 +40,7 @@ public class Game {
     }
 
     private void checkReplay() {
+        player.setMode(replayMode);
         player.input();
         if (player.getValue().equals(Config.END_KEY)) {
             this.end();
