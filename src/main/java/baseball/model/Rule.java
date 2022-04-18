@@ -1,6 +1,8 @@
 package baseball.model;
 
 
+import baseball.constant.Config;
+
 public class Rule {
     private boolean isAllStrike = false;
     private int strike = 0;
@@ -52,7 +54,7 @@ public class Rule {
     }
 
     private void checkAllStrike() {
-        if (this.strike == 3) {
+        if (this.strike == Config.NUMBER_LENGTH) {
             this.isAllStrike = true;
         }
     }
