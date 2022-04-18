@@ -1,27 +1,16 @@
-package baseball;
+package baseball.model.game;
 
 import baseball.constant.Config;
-import baseball.model.Computer;
-import baseball.model.player.PlayMode;
-import baseball.model.player.Player;
-import baseball.model.Rule;
-import baseball.model.player.ReplayMode;
-import baseball.view.ConsoleView;
 
-public class Game {
+public class Game extends GameConfig {
     private boolean isRunning = true;
-    private Player player = new Player();
-    private PlayMode playMode = new PlayMode();
-    private ReplayMode replayMode = new ReplayMode();
-    private Computer computer = new Computer();
-    private Rule rule = new Rule();
-    private ConsoleView view = new ConsoleView();
 
     private void end() {
         this.isRunning = false;
     }
 
     private void run() {
+        // 게임 시작
         view.play();
         player.setMode(playMode);
         player.input();
@@ -29,10 +18,13 @@ public class Game {
     }
 
     private void match() {
+        // ball, strike 점수 리셋 & 게임결과 출력
         rule.reset();
         rule.compare(computer.getValue(), player.getValue());
         view.output(rule.getStrike(), rule.getBall());
-        if(rule.isAllStrike()) {
+
+        // allstrkie 체크
+        if (rule.isAllStrike()) {
             view.end();
             view.replay();
             this.checkReplay();
@@ -45,6 +37,7 @@ public class Game {
         if (player.getValue().equals(Config.END_KEY)) {
             this.end();
         }
+        // 새게임시, 새로운 램덤 숫자 생성
         computer.setValue(Config.NUMBER_LENGTH);
     }
 

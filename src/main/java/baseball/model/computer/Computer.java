@@ -1,4 +1,4 @@
-package baseball.model;
+package baseball.model.computer;
 
 import baseball.constant.Config;
 import camp.nextstep.edu.missionutils.Randoms;

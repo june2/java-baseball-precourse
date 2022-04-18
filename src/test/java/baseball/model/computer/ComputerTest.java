@@ -1,4 +1,4 @@
-package baseball.model;
+package baseball.model.computer;
 
 import org.junit.jupiter.api.Test;
 
