@@ -1,6 +1,7 @@
 package baseball;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -21,9 +22,28 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("정해진 자릿수 초과 입력시 예외처리")
     void 예외_테스트() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("1234"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    @DisplayName("음수 입력시 예외처리")
+    void 예외_테스트2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("-123"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    @DisplayName("1~9사이 숫자 미입력시 예외")
+    void 예외_테스트3() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("103"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
