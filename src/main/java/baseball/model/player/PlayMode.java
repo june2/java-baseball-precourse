@@ -7,7 +7,7 @@ import camp.nextstep.edu.missionutils.Console;
 public class PlayMode implements GameState {
 
     String validateInput(String input) {
-        if (!NumberUtil.isNumeric(input) || input.length() != Config.NUMBER_LENGTH) {
+        if (!NumberUtil.isAllowNumeric(input) || input.length() != Config.NUMBER_LENGTH) {
             throw new IllegalArgumentException();
         }
         return input;
