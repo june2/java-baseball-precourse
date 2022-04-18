@@ -1,5 +1,6 @@
 package baseball;
 
+import baseball.constant.Config;
 import baseball.model.Computer;
 import baseball.model.Player;
 import baseball.model.Rule;
@@ -35,10 +36,10 @@ public class Game {
 
     private void checkReplay() {
         player.input();
-        if (player.getValue().equals("2")) {
+        if (player.getValue().equals(Config.END_KEY)) {
             this.end();
         }
-        computer.setValue(3);
+        computer.setValue(Config.NUMBER_LENGTH);
     }
 
     public void play() {

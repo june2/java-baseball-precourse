@@ -1,12 +1,13 @@
 package baseball.model;
 
+import baseball.constant.Config;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Computer {
     private String value;
 
     public Computer() {
-        this.value = this.generateValue(3);
+        this.value = this.generateValue(Config.NUMBER_LENGTH);
     }
 
     public String getValue() {
